@@ -1,0 +1,31 @@
+{
+  "name": "webshop-backend",
+  "version": "1.0.0",
+  "description": "Programrendszerek fejlesztése beadandó. Backend",
+  "main": "src/index.ts",
+  "scripts": {
+    "build": "npx tsc --build",
+    "start": "node dist/index.js",
+    "dev": "concurrently \"npx tsc --build --watch\" \"nodemon -q dist/index.js\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Fábián Tamás (TT9PKP)",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.18.1",
+    "module-alias": "^2.2.2"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/node": "^17.0.31",
+    "concurrently": "^7.1.0",
+    "nodemon": "^2.0.16",
+    "ts-node": "^10.7.0",
+    "typescript": "^4.6.4"
+  },
+  "_moduleAliases": {
+    "@": "./dist"
+  }
+}
