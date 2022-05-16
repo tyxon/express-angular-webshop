@@ -1,0 +1,68 @@
+###
+GET {{baseUrl}}/items
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+<> 2022-05-16T213039.200.json
+<> 2022-05-16T212756.200.json
+<> 2022-05-16T212741.401.txt
+<> 2022-05-16T212358.200.json
+<> 2022-05-16T212310.200.json
+<> 2022-05-16T212302.200.json
+<> 2022-05-16T212206.200.json
+<> 2022-05-16T212045.401.txt
+<> 2022-05-16T212010.401.txt
+<> 2022-05-16T211944.401.txt
+<> 2022-05-16T211759.401.txt
+<> 2022-05-16T211518.401.txt
+<> 2022-05-16T211314.401.txt
+<> 2022-05-16T211223.200.json
+<> 2022-05-16T210911.200.json
+<> 2022-05-16T210901.401.txt
+<> 2022-05-16T210631.401.txt
+<> 2022-05-16T210621.401.txt
+<> 2022-05-16T210605.401.txt
+<> 2022-05-16T210547.401.txt
+<> 2022-05-16T210259.500.json
+<> 2022-05-16T201641.200.json
+
+###
+GET {{baseUrl}}/item/62828318f8db7cb5a81ad1a6
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+###
+DELETE {{baseUrl}}/item/62828318f8db7cb5a81ad1a6
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+<> 2022-05-16T201502.200.json
+<> 2022-05-16T201334.404.json
+<> 2022-05-16T201257.200.json
+<> 2022-05-16T201254.200.json
+<> 2022-05-16T200559.200.json
+<> 2022-05-16T200542.400.json
+<> 2022-05-16T200534.400.json
+<> 2022-05-16T200515.400.json
+<> 2022-05-16T200508.400.json
+<> 2022-05-16T200441.400.json
+<> 2022-05-16T200440.400.json
+
+###
+POST {{baseUrl}}/item
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "name": "test",
+  "price": 5000
+}
+
+###
+PUT {{baseUrl}}/item/62828306f8db7cb5a81ad1a4
+Authorization: Bearer {{jwtToken}}
+Content-Type: application/json
+
+{
+  "name": "test2"
+}

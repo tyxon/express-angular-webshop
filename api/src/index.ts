@@ -1,16 +1,24 @@
 import "module-alias/register";
-import express, { Express, Request, Response } from "express";
-import dotenv from "dotenv";
+import "@/plugins/Dotenv";
+import App, {ControllerHolder, Options} from "@/App";
+import HomeController from "@/controllers/HomeController";
+import ItemController from "@/controllers/ItemController";
+import passport from "passport";
+import "@/plugins/Passport";
 
-dotenv.config();
+const options = <Options>{
+  port: Number.parseInt(process.env.PORT ?? "3000"),
+  mongoUser: process.env.MONGO_USER,
+  mongoPassword: process.env.MONGO_PASSWORD,
+  mongoPath: process.env.MONGO_PATH
+};
 
-const app: Express = express();
-const port = process.env.PORT;
+const app = new App(
+  [
+    new ControllerHolder(new HomeController()),
+    new ControllerHolder(new ItemController(), [passport.authenticate("jwt", {session: false})])
+  ],
+  options,
+);
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("test");
-});
-
-app.listen(port, () => {
-  console.log(`⚡️[server]: Server is running at https://localhost:${port}`);
-});
+app.listen();
