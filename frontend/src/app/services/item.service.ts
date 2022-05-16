@@ -10,7 +10,6 @@ export class ItemService {
   constructor(private httpClient: HttpClient) { }
 
   getItems() {
-    console.log(this.httpClient);
     return this.httpClient.get<Item[]>("items");
   }
 }

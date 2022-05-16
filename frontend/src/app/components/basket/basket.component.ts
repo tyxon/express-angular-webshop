@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Item} from "@/app/models/Item";
 import {BasketService} from "@/app/services/basket.service";
+import {Order} from "@/app/models/Order";
+import {OrderService} from "@/app/services/order.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-basket',
@@ -8,10 +11,10 @@ import {BasketService} from "@/app/services/basket.service";
   styleUrls: ['./basket.component.scss']
 })
 export class BasketComponent implements OnInit {
-  public items: Item[] = [];
+  public order: Order = <Order>{};
 
-  constructor(private basketService: BasketService) {
-    this.items = this.basketService.getItems();
+  constructor(private router: Router, private basketService: BasketService, private orderService: OrderService) {
+    this.order.items = this.basketService.getItems();
   }
 
   ngOnInit(): void {
@@ -29,7 +32,14 @@ export class BasketComponent implements OnInit {
     this.basketService.removeById(id);
   }
 
-  order() {
-
+  orderItems() {
+    if (this.order.items.length > 0) {
+      this.orderService.sendOrder(this.order);
+      this.basketService.clear();
+      alert("Sikeres rendelés");
+      this.router.navigateByUrl("termekek")
+    } else {
+      alert("Üres a kosár");
+    }
   }
 }

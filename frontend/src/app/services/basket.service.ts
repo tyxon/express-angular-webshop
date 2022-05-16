@@ -64,6 +64,11 @@ export class BasketService {
     this.commit();
   }
 
+  public clear() {
+    this.basket = [];
+    this.commit();
+  }
+
   private findById(id: string) {
     return this.basket.find(x => x._id === id);
   }

@@ -1,10 +1,10 @@
 import "module-alias/register";
 import "@/plugins/Dotenv";
 import App, {ControllerHolder, Options} from "@/App";
-import HomeController from "@/controllers/HomeController";
 import ItemController from "@/controllers/ItemController";
 import passport from "passport";
 import "@/plugins/Passport";
+import OrderController from "@/controllers/OrderController";
 
 const options = <Options>{
   port: Number.parseInt(process.env.PORT ?? "3000"),
@@ -15,8 +15,8 @@ const options = <Options>{
 
 const app = new App(
   [
-    new ControllerHolder(new HomeController()),
-    new ControllerHolder(new ItemController(), [passport.authenticate("jwt", {session: false})])
+    new ControllerHolder(new ItemController(), [passport.authenticate("jwt", {session: false})]),
+    new ControllerHolder(new OrderController(), [passport.authenticate("jwt", {session: false})])
   ],
   options,
 );
