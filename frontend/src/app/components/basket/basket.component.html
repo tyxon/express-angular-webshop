@@ -1,0 +1,19 @@
+<div class="content" role="main">
+  <table>
+    <tr>
+      <th>Név</th>
+      <th>Ár</th>
+      <th>DB</th>
+      <th></th>
+    </tr>
+    <tr *ngFor="let item of items">
+      <th>{{item.name}}</th>
+      <th>{{item.price}} HUF</th>
+      <th>{{item.quantity}}</th>
+      <th><a (click)="increase(item._id)">+</a></th>
+      <th><a (click)="decrease(item._id)">-</a></th>
+      <th><a (click)="remove(item._id)">Törlés</a></th>
+    </tr>
+  </table>
+  <a (click)="order()">Megrendelés</a>
+</div>

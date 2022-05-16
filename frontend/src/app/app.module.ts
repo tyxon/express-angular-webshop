@@ -9,12 +9,14 @@ import {environment} from "@/environments/environment";
 import { ItemListComponent } from './components/item-list/item-list.component';
 import { ErrorComponent } from './components/error/error.component';
 import {FormsModule} from "@angular/forms";
+import { BasketComponent } from './components/basket/basket.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ItemListComponent,
-    ErrorComponent
+    ErrorComponent,
+    BasketComponent
   ],
   imports: [
     BrowserModule,

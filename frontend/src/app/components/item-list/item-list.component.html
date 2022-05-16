@@ -10,7 +10,7 @@
         <th>{{item.name}}</th>
         <th>{{item.price}} HUF</th>
         <th><input type="number" min="1" [(ngModel)]="item.quantity"></th>
-        <th><a (click)="addToBasket(item._id)">Kosárba</a></th>
+        <th><a (click)="addToBasket(item)">Kosárba</a></th>
       </tr>
     </table>
 </div>

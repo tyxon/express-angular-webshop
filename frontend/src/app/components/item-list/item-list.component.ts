@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {ItemService} from "@/app/services/item.service";
 import {Item} from "@/app/models/Item";
+import {BasketService} from "@/app/services/basket.service";
 
 @Component({
   selector: 'app-item-list',
@@ -10,7 +11,7 @@ import {Item} from "@/app/models/Item";
 export class ItemListComponent implements OnInit {
   public items: Item[] = [];
 
-  constructor(private itemService: ItemService) {
+  constructor(private itemService: ItemService, private basketService: BasketService) {
     itemService.getItems().subscribe(value => {
       this.items = value;
       this.items.forEach(item => {
@@ -22,7 +23,8 @@ export class ItemListComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  public addToBasket(id: string) {
-
+  public addToBasket(item: Item) {
+    alert(`${item.name} termékből ${item.quantity} db hozzáadva a kosárhoz.`);
+    this.basketService.add(item);
   }
 }
