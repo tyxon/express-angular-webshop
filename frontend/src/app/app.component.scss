@@ -1,0 +1,13 @@
+.toolbar {
+  a {
+    color: white;
+
+    &:hover {
+      color: gray;
+    }
+  }
+
+  span {
+    margin-right: 1em;
+  }
+}

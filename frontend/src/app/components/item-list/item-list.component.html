@@ -1,0 +1,16 @@
+<div class="content" role="main">
+    <table>
+      <tr>
+        <th>Név</th>
+        <th>Ár</th>
+        <th>DB</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let item of items">
+        <th>{{item.name}}</th>
+        <th>{{item.price}} HUF</th>
+        <th><input type="number" min="1" [(ngModel)]="item.quantity"></th>
+        <th><a (click)="addToBasket(item._id)">Kosárba</a></th>
+      </tr>
+    </table>
+</div>

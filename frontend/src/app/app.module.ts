@@ -3,16 +3,29 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
+import {HttpClientModule} from "@angular/common/http";
+import {httpInterceptorProviders} from "@/app/plugins/httpInterceptors/httpInterceptorProviders";
+import {environment} from "@/environments/environment";
+import { ItemListComponent } from './components/item-list/item-list.component';
+import { ErrorComponent } from './components/error/error.component';
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ItemListComponent,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [
+    httpInterceptorProviders,
+    { provide: "BASE_API_URL", useValue: environment.apiUrl }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
